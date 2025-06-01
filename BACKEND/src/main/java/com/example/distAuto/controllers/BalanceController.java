@@ -19,12 +19,6 @@ public class BalanceController {
         this.bService = bService;
     }
 
-
-    @PostMapping("/add-product-price")
-    public BigDecimal addProductPrice(@RequestBody ProductPriceRequest request) {
-        return bService.addProductPrice(request.getProductPrice(), request.getProductId());
-    }
-
     // Insert to balance
     @PostMapping("/insert")
     public BigDecimal insert(@RequestBody BigDecimal coinEntered) {
@@ -49,4 +43,11 @@ public class BalanceController {
     public String exchangeReturn() {
         return bService.exchangeReturn();
     }
+
+    @PostMapping("/add-product-price")
+    public BigDecimal addProductPrice(@RequestBody ProductPriceRequest request) {
+        return bService.addProductPrice(request.getProductPrice(), request.getProductId());
+    }
+
+
 }
