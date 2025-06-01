@@ -4,9 +4,9 @@ Ce projet est une API backend pour un distributeur automatique, développée en 
 
 # fonctionnalités principales
 
-Gestion du solde (insertion, extraction, réinitialisation)
+Gestion du solde (insertion, extraction, réinitialisation) le solde reste fixe meme si on refresh la page il faut clicked rsur reset balance
 
-Gestion des produits (liste, ajout au panier)
+Gestion des produits (liste, ajout au panier) aussi les produis de panier reste fixe meme si on restart la page parceque les produits sont stocker en db il faut cliocker sur empty panier pour le vider
 
 Gestion du panier (ajout, suppression, modification de la quantité)
 
