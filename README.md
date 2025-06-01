@@ -28,24 +28,22 @@ Maven
 
 Axios (côté client HTTP)
 
-| Méthode                | URL                      | Description                                              |
-| ---------------------- | ------------------------ | -------------------------------------------------------- |
-| **BALANCE CONTROLLER** |                          |
-| POST                   | `/api/insert`            | Insère une pièce dans le solde (body : montant)          |
-| POST                   | `/api/extract`           | Retire une somme du solde (body : montant)               |
-| GET                    | `/api/reset-balance`     | Réinitialise le solde à 0                                |
-| GET                    | `/api/balance`           | Récupère le solde actuel                                 |
-| GET                    | `/api/return-exchange`   | Retourne la monnaie rendue                               |
-| POST                   | `/api/add-product-price` | Ajoute un prix produit (body : productPrice + productId) |
-
-| **CART ITEM CONTROLLER** | |
-| POST | `/api/remove-all-cart-items` | Vide le panier |
-| POST | `/api/subtract-quantity` | Diminue la quantité d’un produit (body : productId) |
-| GET | `/api/list-added-to-cart` | Liste les produits ajoutés au panier |
-
-| **PRODUCT CONTROLLER** | |
-| GET | `/api/products` | Récupère la liste de tous les produits |
-| POST | `/api/add-to-cart` | Ajoute un produit au panier (body : productId) |
+| Méthode                  | URL                          | Description                                              |
+| ------------------------ | ---------------------------- | -------------------------------------------------------- |
+| **BALANCE CONTROLLER**   |                              |
+| POST                     | `/api/insert`                | Insère une pièce dans le solde (body : montant)          |
+| POST                     | `/api/extract`               | Retire une somme du solde (body : montant)               |
+| GET                      | `/api/reset-balance`         | Réinitialise le solde à 0                                |
+| GET                      | `/api/balance`               | Récupère le solde actuel                                 |
+| GET                      | `/api/return-exchange`       | Retourne la monnaie rendue                               |
+| POST                     | `/api/add-product-price`     | Ajoute un prix produit (body : productPrice + productId) |
+| **CART ITEM CONTROLLER** |                              |
+| POST                     | `/api/remove-all-cart-items` | Vide le panier                                           |
+| POST                     | `/api/subtract-quantity`     | Diminue la quantité d’un produit (body : productId)      |
+| GET                      | `/api/list-added-to-cart`    | Liste les produits ajoutés au panier                     |
+| **PRODUCT CONTROLLER**   |                              |
+| GET                      | `/api/products`              | Récupère la liste de tous les produits                   |
+| POST                     | `/api/add-to-cart`           | Ajoute un produit au panier (body : productId)           |
 
 # exemple d’utilisation
 
