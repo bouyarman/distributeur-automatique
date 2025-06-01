@@ -72,8 +72,8 @@ cd BACKEND
 
 -Configurer la base de données PostgreSQL (modifier application.properties)
 spring.datasource.url=jdbc:postgresql://localhost:5432/distibuteurAutomatique
-spring.datasource.username=postgres
-spring.datasource.password=maison2021
+spring.datasource.username=your_username
+spring.datasource.password=your_password
 
 -Construire et lancer l’application
 mvn clean install
