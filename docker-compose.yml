@@ -1,0 +1,35 @@
+services:
+  frontend:
+    build: ./FRONTEND/distributionAutomatiqueFront
+    container_name: autodistribution-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+
+  backend:
+    build: ./BACKEND
+    container_name: autodistribution-backend
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/distibuteurAutomatique
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: maison2021
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    container_name: autodistribution-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: maison2021
+      POSTGRES_DB: distibuteurAutomatique
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
