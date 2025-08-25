@@ -3,7 +3,6 @@ build_front:
     image: node:22
     script:
         - cd FRONTEND/distributionAutomatiqueFront
-
         - npm install
         - npm run build
 
