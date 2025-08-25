@@ -1,0 +1,26 @@
+build_front:
+    stage: ci
+    image: node:22
+    script:
+        - cd FRONTEND
+        - npm install
+        - npm run build
+
+build_back:
+    stage: ci
+    image: maven:3.9.6-eclipse-temurin-17
+    services:
+        -name: postgres:15
+        alias: db
+    script: 
+        - cd BACKEND
+        - mvn clean package -DskipTests
+
+build_image:
+    stage: ci
+    image: docker:25
+    services:
+        - docker:25-dind
+    script:
+        - docker build -t hamza395/dist-auto-front:latest ./FRONTEND
+        - docker build -t hamza395/dist-auto-back:latest ./BACKEND
