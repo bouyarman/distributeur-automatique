@@ -4,4 +4,4 @@ stages:
     
 include:
   - local: 'ci-pipeline.yml'
-  - local: 'cd-poipeline.yml'
+  - local: 'cd-pipeline.yml'
