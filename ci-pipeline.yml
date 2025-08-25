@@ -2,7 +2,8 @@ build_front:
     stage: ci
     image: node:22
     script:
-        - cd FRONTEND
+        - cd FRONTEND/distributionAutomatiqueFront
+
         - npm install
         - npm run build
 
