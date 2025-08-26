@@ -22,5 +22,4 @@ build_image:
     services:
         - docker:25-dind
     script:
-        - docker build -t hamza395/dist-auto-front:latest ./FRONTEND/distributionAutomatiqueFront
-        - docker build -t hamza395/dist-auto-back:latest ./BACKEND
+        - docker compose -f docker-compose.yml build
