@@ -1,5 +1,7 @@
 stages:
   - ci
+  - cd
     
 include:
   - local: 'ci-pipeline.yml'
+  - local: 'cd-pipeline.yml'
