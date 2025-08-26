@@ -23,8 +23,6 @@ build_image:
         DOCKER_DRIVER: overlay2
         DOCKER_TLS_CERTDIR: ""
     services:
-        - image: docker:25-dind
-          command: ["--tls=false"]
-        
+        - image: docker:25-dind        
     script:
         - docker compose -f docker-compose.yml build
