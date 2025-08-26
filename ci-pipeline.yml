@@ -5,6 +5,9 @@ build_front:
         - cd FRONTEND/distributionAutomatiqueFront
         - npm install
         - npm run build
+    artifacts:
+        paths:
+            - FRONTEND/distributionAutomatiqueFront/dist
 
 build_back:
     stage: ci
@@ -15,6 +18,9 @@ build_back:
     script: 
         - cd BACKEND
         - mvn clean package -DskipTests
+    artifacts:
+        paths:
+            - BACKEND/target/*.jar
 
 build_image:
     stage: ci
