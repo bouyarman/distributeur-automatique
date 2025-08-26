@@ -1,0 +1,8 @@
+push_images:
+    stage: cd
+    image: docker:25
+    services:
+        - docker:25-dind
+    script:
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - docker compose -f docker-compose.yml push
