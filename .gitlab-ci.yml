@@ -1,7 +1,48 @@
 stages:
   - ci
   - cd
-    
-include:
-  - local: 'ci-pipeline.yml'
-  - local: 'cd-pipeline.yml'
+
+build_front:
+    stage: ci
+    image: node:22
+    script:
+        - cd FRONTEND/distributionAutomatiqueFront
+        - npm install
+        - npm run build
+    artifacts:
+        paths:
+            - FRONTEND/distributionAutomatiqueFront/dist
+
+build_back:
+    stage: ci
+    image: maven:3.9.6-eclipse-temurin-17
+    services:
+        - name: postgres:15
+          alias: db
+    script: 
+        - cd BACKEND
+        - mvn clean package -DskipTests
+    artifacts:
+        paths:
+            - BACKEND/target/*.jar
+
+build_image:
+    stage: ci
+    image: docker:25
+    variables:
+        DOCKER_DRIVER: overlay2
+        DOCKER_TLS_CERTDIR: ""
+    services:
+        - docker:25-dind        
+    script:
+        - docker compose -f docker-compose.yml build
+        - docker images
+        
+push_image:
+    stage: cd
+    image: docker:25
+    services:
+        - docker:25-dind
+    script:
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - docker compose -f docker-compose.yml push
