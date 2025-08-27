@@ -26,7 +26,7 @@ build_back:
         paths:
             - BACKEND/target/*.jar
 
-build_image:
+build_push_image:
     stage: ci
     image: docker:25
     variables:
@@ -35,14 +35,7 @@ build_image:
     services:
         - docker:25-dind        
     script:
-        - docker compose -f docker-compose.yml build
-        - docker images
-        
-push_image:
-    stage: cd
-    image: docker:25
-    services:
-        - docker:25-dind
-    script:
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - docker compose -f docker-compose.yml build
         - docker compose -f docker-compose.yml push
+
